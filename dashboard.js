@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 (() => {
   const root = document.querySelector(".dashboard");
   if (!root) return;
@@ -31,7 +31,7 @@
   let active = "Overview",
     charts = [],
     period = "September 2026";
-  let userEmail = "you@example.com";
+  let userEmail = "";
   try {
     userEmail = sessionStorage.getItem("stackly-demo-email") || userEmail;
   } catch {}
@@ -124,10 +124,28 @@
           "'": "&#39;",
         })[c],
     );
-  const welcomeText = () => `Welcome back, ${safe(userEmail)}`;
+  const loginName = userEmail.split("@")[0].trim();
+  const welcomeText = () =>
+    loginName ? `Welcome back, ${safe(loginName)}` : "Welcome back";
   const topLabel = document.querySelector(".dash-top span:first-child");
   if (topLabel)
     topLabel.innerHTML = `${safe(topLabel.textContent)}<br><strong class="dashboard-welcome">${welcomeText()}</strong>`;
+  const topBar = document.querySelector(".dash-top");
+  if (topBar) {
+    const account = document.createElement("div");
+    account.className = "dashboard-account";
+    const role = document.createElement("span");
+    role.className = "dashboard-role";
+    role.textContent = admin ? "Energy administrator" : "Energy client";
+    account.append(role);
+    const email = document.createElement("span");
+    email.className = "dashboard-email";
+    email.textContent = userEmail || "No email signed in";
+    account.append(email);
+    const dataLabel = topBar.querySelector(".tag");
+    if (dataLabel) account.append(dataLabel);
+    topBar.append(account);
+  }
   const money = (n) => "₹" + n.toLocaleString("en-IN");
   const q = (s) => content.querySelector(s),
     qa = (s) => [...content.querySelectorAll(s)];
