@@ -363,12 +363,35 @@ $$(".show-password").forEach((b) =>
     b.setAttribute("aria-label", show ? "Hide password" : "Show password");
   }),
 );
+// Filter both typed and pasted characters in the contact fields.
+$$('#enquiry-form input[data-characters]').forEach((input) => {
+  const sanitize = () => {
+    const disallowed = input.dataset.characters === "letters" ? /[^A-Za-z]/g : /[^0-9]/g;
+    const value = input.value;
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    input.value = value.replace(disallowed, "");
+    if (start !== null && end !== null)
+      input.setSelectionRange(
+        value.slice(0, start).replace(disallowed, "").length,
+        value.slice(0, end).replace(disallowed, "").length,
+      );
+  };
+  input.addEventListener("input", (event) => {
+    if (!event.isComposing) sanitize();
+  });
+  input.addEventListener("compositionend", sanitize);
+});
 window.validateForm = (form) => {
   let first = null;
   $$("input[required],select[required],textarea[required]", form).forEach(
     (input) => {
       let msg = "";
       if (!input.value.trim()) msg = "Please complete this field.";
+      else if (input.dataset.characters === "letters" && !/^[A-Za-z]+$/.test(input.value))
+        msg = "Use letters only.";
+      else if (input.dataset.characters === "digits" && !/^[0-9]{7,20}$/.test(input.value))
+        msg = "Enter 7 to 20 digits only.";
       else if (input.type === "email" && !input.validity.valid)
         msg = "Enter a valid email address.";
       else if (
