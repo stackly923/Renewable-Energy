@@ -483,6 +483,66 @@ svg {
   letter-spacing: 0.04em;
   color: var(--text);
 }
+/* Home content uses transforms so hover never changes document layout.
+   Touch devices and reduced-motion preferences retain the static design. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body[data-page="home"] :is(
+    .image-story-copy,
+    .image-story-points li,
+    .industry,
+    .pill-row .tag,
+    .metric-stat strong,
+    .diagram-shell,
+    .energy-node,
+    .diagram-bottom > div,
+    .progress-row,
+    .quote,
+    .faq details,
+    .pause
+  ) {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  body[data-page="home"] :is(.metric-stat strong, .industry span) {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  body[data-page="home"] :is(
+    .image-story-copy,
+    .image-story-points li,
+    .industry,
+    .pill-row .tag,
+    .diagram-shell,
+    .energy-node,
+    .diagram-bottom > div,
+    .progress-row,
+    .quote,
+    .faq details,
+    .pause
+  ):hover,
+  body[data-page="home"] .industry:focus-visible {
+    transform: translateY(-3px);
+  }
+
+  body[data-page="home"] :is(.pill-row .tag, .diagram-shell, .energy-node:not(.center)):hover {
+    box-shadow: 0 12px 26px #12372a14;
+  }
+
+  body[data-page="home"] .metric-stat:hover strong {
+    transform: translateY(-4px);
+  }
+
+  body[data-page="home"] .industry:is(:hover, :focus-visible) span {
+    transform: translate(3px, -3px);
+  }
+}
+
+body[data-page="home"] :is(.industry, .pause):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
 .metrics-strip {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
