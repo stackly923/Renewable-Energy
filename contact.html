@@ -118,6 +118,8 @@
                     id="contact-first"
                     name="first"
                     type="text"
+                    pattern="[A-Za-z]+"
+                    data-characters="letters"
                     placeholder="Aarav"
                     required
                     aria-describedby="error-first"
@@ -130,6 +132,8 @@
                     id="contact-last"
                     name="last"
                     type="text"
+                    pattern="[A-Za-z]+"
+                    data-characters="letters"
                     placeholder="Sharma"
                     required
                     aria-describedby="error-last"
@@ -154,7 +158,10 @@
                     id="contact-phone"
                     name="phone"
                     type="tel"
-                    placeholder="+91 98765 43210"
+                    inputmode="numeric"
+                    pattern="[0-9]{7,20}"
+                    data-characters="digits"
+                    placeholder="919876543210"
                     required
                     aria-describedby="error-phone"
                   />
