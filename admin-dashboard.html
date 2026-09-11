@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#12372A" />
+    <meta
+      name="description"
+      content="STACKLY renewable energy &mdash; solar, wind, battery storage and smart energy solutions for businesses and communities."
+    />
+    <title>Energy administrator | STACKLY Energy</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="images.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"
+      defer
+    ></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="admin-dashboard">
+    <a class="skip" href="#main">Skip to content</a>
+    <main id="main">
+      <div class="dashboard" data-role="admin">
+        <aside class="sidebar">
+          <div class="dashboard-sidebar-head">
+            <div class="brand" aria-label="STACKLY"
+              ><span class="brand-mark"></span>STACKLY.</div
+            >
+            <button
+              class="dashboard-menu-toggle"
+              type="button"
+              aria-controls="side-nav"
+              aria-expanded="false"
+              aria-label="Open dashboard navigation"
+            >
+              &#9776;
+            </button>
+          </div>
+          <div class="sidebar-role">ENERGY ADMINISTRATOR</div>
+          <nav
+            class="side-nav"
+            aria-label="Dashboard navigation"
+            id="side-nav"
+          ></nav>
+          <div class="side-bottom">
+            <button class="sign-out">&#8599; Sign out</button>
+          </div>
+        </aside>
+        <div class="dash-main">
+          <div class="dash-top">
+            <span>WORKSPACE / OPERATIONS</span
+            ><span class="tag">Demo data &middot; September 2026</span>
+          </div>
+          <div id="dashboard-content" aria-live="polite"></div>
+        </div>
+      </div>
+      <script src="dashboard.js" defer></script>
+    </main>
+    <dialog id="detail-dialog" aria-labelledby="dialog-title">
+      <button class="close-dialog" aria-label="Close dialog">&times;</button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <button class="to-top" aria-label="Back to top">&#8593;</button>
+  </body>
+</html>

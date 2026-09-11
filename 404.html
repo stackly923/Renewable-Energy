@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#12372A" />
+    <meta
+      name="description"
+      content="STACKLY renewable energy &mdash; solar, wind, battery storage and smart energy solutions for businesses and communities."
+    />
+    <title>Energy path offline | STACKLY Energy</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="images.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="404">
+    <a class="skip" href="#main">Skip to content</a>
+    <main id="main">
+      <section class="error-page">
+        <div class="error-number">404</div>
+        <h1>Looks like this energy<br />path is offline.</h1>
+        <p>
+          The page you&rsquo;re looking for isn&rsquo;t connected to our renewable energy
+          network.
+        </p>
+        <div class="hero-actions">
+          <button class="btn secondary" id="go-back">&#8592; Go back</button
+          ><a class="btn" href="index.html"
+            >Return home<span class="arrow" aria-hidden="true">&#8599;</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <dialog id="detail-dialog" aria-labelledby="dialog-title">
+      <button class="close-dialog" aria-label="Close dialog">&times;</button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <button class="to-top" aria-label="Back to top">&#8593;</button>
+  </body>
+</html>

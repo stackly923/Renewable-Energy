@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#12372A" />
+    <meta
+      name="description"
+      content="STACKLY renewable energy &mdash; solar, wind, battery storage and smart energy solutions for businesses and communities."
+    />
+    <title>Welcome back. | STACKLY Energy</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="images.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="signin">
+    <a class="skip" href="#main">Skip to content</a>
+    <main id="main">
+      <div class="auth-layout">
+        <a class="auth-back" href="index.html" aria-label="Back to home"
+          >&#8592; Back</a
+        >
+        <div class="auth-main">
+          <form id="signin-form" class="validate-form" novalidate>
+            <div class="brand auth-brand" aria-label="STACKLY">
+              <span class="brand-mark"></span>STACKLY
+            </div>
+            <h2>Welcome back.</h2>
+            <p class="small">
+              Choose your role to enter the demonstration workspace.
+            </p>
+            <div class="field">
+              <label for="auth-email">Email address</label
+              ><input
+                id="auth-email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+                aria-describedby="error-email"
+              />
+              <div id="error-email" class="field-error"></div>
+            </div>
+            <div class="field">
+              <label for="auth-password">Password</label>
+              <div class="password-wrap">
+                <input
+                  id="auth-password"
+                  name="password"
+                  type="password"
+                  minlength="8"
+                  required
+                  autocomplete="current-password"
+                  placeholder="At least 8 characters"
+                  aria-describedby="error-password"
+                /><button
+                  type="button"
+                  class="show-password"
+                  aria-label="Show password"
+                >
+                  Show
+                </button>
+              </div>
+              <a class="forgot-password" href="404.html">Forgot password?</a>
+              <div id="error-password" class="field-error"></div>
+            </div>
+            <fieldset style="border: 0; padding: 0; margin: 24px 0 0">
+              <legend
+                style="
+                  font-size: 14px;
+                  margin-bottom: 10px;
+                  color: var(--heading);
+                "
+              >
+                Choose your energy role
+              </legend>
+              <div class="role-grid">
+                <label class="role-option"
+                  ><input type="radio" name="role" value="customer" checked />
+                  Energy Client</label
+                ><label class="role-option"
+                  ><input type="radio" name="role" value="admin" /> Energy
+                  Administrator</label
+                >
+              </div>
+            </fieldset>
+            <button class="btn" type="submit">Sign in &#8599;</button>
+            <div class="form-status" role="status"></div>
+            <p class="form-note">
+              Frontend demonstration only. No secure authentication or real
+              account is created. Passwords are never stored.
+            </p>
+            <p class="auth-bottom">
+              New here? <a href="register.html">Create an account</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </main>
+    <dialog id="detail-dialog" aria-labelledby="dialog-title">
+      <button class="close-dialog" aria-label="Close dialog">&times;</button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <button class="to-top" aria-label="Back to top">&#8593;</button>
+  </body>
+</html>
