@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 const $ = (s, r = document) => r.querySelector(s),
   $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -452,6 +452,17 @@ if (projectTypeSelect) {
   });
   projectTypeSelect.addEventListener("blur", closeProjectTypeSelect);
   addEventListener("resize", syncProjectTypeSelect);
+}
+const errorReturn = $("#error-return");
+if (errorReturn) {
+  try {
+    const role = sessionStorage.getItem("stackly-demo-role");
+    if (role === "admin" || role === "customer") {
+      errorReturn.href =
+        role === "admin" ? "admin-dashboard.html" : "customer-dashboard.html";
+      $(".error-return-label", errorReturn).textContent = "Go to Dashboard";
+    }
+  } catch {}
 }
 $("#go-back")?.addEventListener("click", () => {
   if (history.length > 1) history.back();
