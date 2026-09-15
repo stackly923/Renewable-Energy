@@ -146,6 +146,7 @@
                     id="contact-email"
                     name="email"
                     type="email"
+                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                     placeholder="aarav.sharma@example.com"
                     required
                     aria-describedby="error-email"
@@ -173,7 +174,9 @@
                     id="contact-company"
                     name="company"
                     type="text"
-                    placeholder="Stackly Manufacturing"
+                    pattern="[A-Za-z]+"
+                    data-characters="letters"
+                    placeholder="StacklyManufacturing"
                     required
                     aria-describedby="error-company"
                   />
@@ -214,7 +217,9 @@
                     id="contact-location"
                     name="location"
                     type="text"
-                    placeholder="Hyderabad, Telangana"
+                    pattern="[A-Za-z]+"
+                    data-characters="letters"
+                    placeholder="HyderabadTelangana"
                     required
                     aria-describedby="error-location"
                   />
